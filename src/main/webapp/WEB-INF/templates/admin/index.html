@@ -18,14 +18,31 @@
         <button class="btn btn-default">创建抽奖规则</button>
     </div>
     <div>
+        <table>
+            <thead>
+            <tr>
+                <td>id</td>
+                <td>抽奖名</td>
+                <td>开始时间</td>
+                <td>截止时间</td>
+                <td>参与的最多人数</td>
+                <td>抽选出的人数</td>
+                <td>操作</td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
 
+            </tr>
+            </tbody>
+        </table>
     </div>
 </div>
 
 <script>
-    (function($) {
+    (function ($) {
         $(function () {
-            $.get('/rules', function(result) {
+            $.get('/rules', function (result) {
                 console.log(result);
             }, 'json');
         });

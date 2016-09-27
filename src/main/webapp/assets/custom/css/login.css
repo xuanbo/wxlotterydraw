@@ -1,0 +1,71 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Microsoft YaHei", sans-serif;
+}
+
+html {
+    font-size: 625%;
+}
+
+#head {
+    background-color: #6f5499;
+    color: #ffffff;
+    height: 1rem;
+}
+
+#head h1 {
+    font-size: .3rem;
+}
+
+#login {
+    margin-top: 50px;
+}
+
+#loginInput {
+    border: 1px solid #e3e3e3;
+    padding: 20px;
+    border-radius: 4px;
+    background-color: #f5f5f5;
+}
+
+#loginInput .form-group {
+    padding: 20px 5px;
+}
+
+.input-group {
+    margin: 0 auto 20px;
+    width: 90%;
+}
+
+#verificationCode {
+    width: 1.2rem;
+    margin-right: .2rem;
+}
+
+.login-panel {
+    margin: 0 auto 30px;
+    width: 90%;
+    border-bottom: 1px solid #ddd;
+}
+
+.login-panel-title {
+    font-size: .26rem;
+    padding-bottom: 10px;
+}
+
+.name-label, .password-label {
+    line-height: .34rem;
+    font-size: 0.16rem;
+    letter-spacing: 0.02rem;
+}
+
+.codeImg {
+    border-radius: 4px;
+    height: .34rem;
+}
+
+#loginSubmit {
+    margin: 0 auto;
+    width: 90%;
+}

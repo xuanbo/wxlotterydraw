@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录</title>
+    <script src="/assets/jQuery/jQuery.min.js"></script>
+    <script src="/assets/bootstrap/js/bootstrap.min.js"></script>
+    <link type="text/css" href="/assets/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+    <link type="text/css" href="/assets/custom/css/login.css" rel="stylesheet"/>
+</head>
+<body>
+
+<div id="head" class="col-lg-12">
+    <marquee><h1>后台管理登录</h1></marquee>
+</div>
+
+<div id="login" class="col-lg-6 col-lg-offset-3">
+
+    <div id="loginInput" class="col-lg-8 col-lg-offset-2 ">
+        <div class="login-panel">
+            <div class="login-panel-title">管理员登录</div>
+        </div>
+
+        <div id="error" class="alert alert-danger" role="alert" style="display: none"></div>
+
+        <div class="input-group">
+          <span class="input-group-addon">
+            <span class="glyphicon glyphicon-user"></span>
+          </span>
+            <input type="text" id="loginName" name="loginName" class="form-control" placeholder="请输入账号"/>
+        </div>
+
+        <div class="input-group">
+       <span class="input-group-addon">
+        <span class="glyphicon glyphicon-lock"></span>
+      </span>
+            <input type="password" id="password" name="password" class="form-control" placeholder="请输入密码"/>
+        </div>
+
+        <!--
+        <div class="input-group">
+      <span class="input-group-addon">
+        <span class="glyphicon glyphicon-transfer"></span>
+      </span>
+            <input type="text" id="verificationCode" name="verificationCode" class="form-control" placeholder="请输入验证码"/>
+            <img class="codeImg" src="/verificationCode"/>
+        </div>
+        -->
+        <input id="loginSubmit" type="button" class="btn btn-primary btn-block" value="登录"/>
+    </div>
+</div>
+
+<script src="/assets/custom/js/login.js"></script>
+</body>
+</html>

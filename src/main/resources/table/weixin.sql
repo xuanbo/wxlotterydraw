@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50710
 File Encoding         : 65001
 
-Date: 2016-09-27 16:56:56
+Date: 2016-09-28 14:13:00
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -63,14 +63,15 @@ CREATE TABLE `rule` (
   `end_time` datetime DEFAULT NULL COMMENT '抽奖截止时间',
   `max` int(11) DEFAULT NULL COMMENT '抽奖允许的最大人数',
   `picker_num` int(11) DEFAULT NULL COMMENT '抽奖中奖的人数',
+  `is_do` tinyint(1) DEFAULT '0' COMMENT '是否抽奖了',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of rule
 -- ----------------------------
-INSERT INTO `rule` VALUES ('1', '第一次抽奖', '测试抽奖', '2016-09-27 08:21:15', '2016-09-28 08:20:02', '10', '2');
-INSERT INTO `rule` VALUES ('2', '第二次抽奖', '测试抽奖2', '2016-09-27 16:20:48', '2016-09-28 16:20:51', '20', '3');
+INSERT INTO `rule` VALUES ('1', '第一次抽奖', '测试抽奖', '2016-09-27 08:21:15', '2016-09-28 08:20:02', '10', '2', null);
+INSERT INTO `rule` VALUES ('2', '第二次抽奖', '测试抽奖2', '2016-09-27 16:20:48', '2016-09-28 16:20:51', '20', '3', null);
 
 -- ----------------------------
 -- Table structure for user
@@ -78,11 +79,11 @@ INSERT INTO `rule` VALUES ('2', '第二次抽奖', '测试抽奖2', '2016-09-27 
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `login_name` varchar(255) DEFAULT NULL COMMENT '微信账号',
+  `open_id` varchar(255) DEFAULT NULL COMMENT '微信openId',
   `username` varchar(255) DEFAULT NULL COMMENT '微信昵称',
   `tel` varchar(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `loginName` (`login_name`)
+  UNIQUE KEY `loginName` (`open_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------

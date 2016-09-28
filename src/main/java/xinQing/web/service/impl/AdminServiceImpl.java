@@ -29,21 +29,14 @@ public class AdminServiceImpl extends BaseServiceImpl<Admin, Integer> implements
         return adminMapper.selectOne(admin);
     }
 
-    /**
-     * 由于新浪云的问题，验证码图片无法显示，因此发布到新浪云中取消登录中的验证码校验
-     *
-     * @param adminInfo
-     * @param session
-     * @return
-     */
     @Override
     public Info validation(AdminInfo adminInfo, HttpSession session) {
         Info loginInfo = new Info();
-//        if (!((String)session.getAttribute(SessionUtil.VERIFICATION_CODE)).equalsIgnoreCase(adminInfo.getVerificationCode())) {
-//            loginInfo.setFlag(false);
-//            loginInfo.setMsg("验证码输入错误");
-//            return loginInfo;
-//        }
+        if (!((String)session.getAttribute(SessionUtil.VERIFICATION_CODE)).equalsIgnoreCase(adminInfo.getVerificationCode())) {
+            loginInfo.setFlag(false);
+            loginInfo.setMsg("验证码输入错误");
+            return loginInfo;
+        }
         Admin persistAdmin = selectByLoginName(adminInfo.getAdmin().getLoginName());
         if (persistAdmin == null) {
             loginInfo.setFlag(false);

@@ -42,4 +42,9 @@ public abstract class BaseServiceImpl<T, ID extends Serializable> implements Bas
         PageHelper.startPage(current, size, "id desc");
         return new PageInfo<>(mapper.selectAll());
     }
+
+    @Override
+    public T selectOne(T t) {
+        return mapper.selectOne(t);
+    }
 }

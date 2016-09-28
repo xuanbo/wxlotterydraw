@@ -16,12 +16,12 @@ public class User implements Serializable {
     private Integer id;
 
     @Column
-    private String loginName;//微信号
+    private String openid;// 微信openid
 
     @Column
-    private String username;//昵称
+    private String username;// 微信昵称
 
-    private String tel;
+    private String tel;// 手机号
 
     public Integer getId() {
         return id;
@@ -31,12 +31,12 @@ public class User implements Serializable {
         this.id = id;
     }
 
-    public String getLoginName() {
-        return loginName;
+    public String getOpenid() {
+        return openid;
     }
 
-    public void setLoginName(String loginName) {
-        this.loginName = loginName;
+    public void setOpenid(String openId) {
+        this.openid = openId;
     }
 
     public String getUsername() {
@@ -59,7 +59,7 @@ public class User implements Serializable {
     public String toString() {
         return "User{" +
                 "id=" + id +
-                ", loginName='" + loginName + '\'' +
+                ", openid='" + openid + '\'' +
                 ", username='" + username + '\'' +
                 ", tel='" + tel + '\'' +
                 '}';

@@ -4,19 +4,13 @@
         $('#loginSubmit').on('click', function () {
             var loginName = $('#loginName').val();
             var password = $('#password').val();
-            //var verificationCode = $('#verificationCode').val();
-            //var adminInfo = {
-            //    admin: {
-            //        loginName: loginName,
-            //        password: password
-            //    },
-            //    verificationCode: verificationCode
-            //};
+            var verificationCode = $('#verificationCode').val();
             var adminInfo = {
                 admin: {
                     loginName: loginName,
                     password: password
-                }
+                },
+                verificationCode: verificationCode
             };
             adminInfo = JSON.stringify(adminInfo);
             $.ajax({

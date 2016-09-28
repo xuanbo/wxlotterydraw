@@ -2,9 +2,12 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-    <title></title>
+    <meta charset="UTF-8">
+    <title>用户信息</title>
 </head>
 <body>
-    Hello World
+    ${user.openid}
+    ${user.username}
+    ${user.tel}
 </body>
 </html>

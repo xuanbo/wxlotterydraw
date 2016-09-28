@@ -35,6 +35,9 @@ public class Rule implements Serializable {
     @Column
     private Integer pickerNum;// 抽奖抽取的人数
 
+    @Column
+    private boolean isDo;// 该规则是否已经抽奖完毕
+
     public Integer getId() {
         return id;
     }
@@ -91,6 +94,14 @@ public class Rule implements Serializable {
         this.pickerNum = pickerNum;
     }
 
+    public boolean isDo() {
+        return isDo;
+    }
+
+    public void setIsDo(boolean isDo) {
+        this.isDo = isDo;
+    }
+
     @Override
     public String toString() {
         return "Rule{" +
@@ -101,6 +112,7 @@ public class Rule implements Serializable {
                 ", endTime=" + endTime +
                 ", max=" + max +
                 ", pickerNum=" + pickerNum +
+                ", isDo=" + isDo +
                 '}';
     }
 }

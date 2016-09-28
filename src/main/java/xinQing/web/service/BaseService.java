@@ -49,4 +49,12 @@ public interface BaseService<T, ID extends Serializable> {
      */
     PageInfo<T> getByPage(Integer current, Integer size);
 
+    /**
+     * 查询
+     *
+     * @param t
+     * @return
+     */
+    T selectOne(T t);
+
 }

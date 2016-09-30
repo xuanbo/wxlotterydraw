@@ -19,7 +19,7 @@ public class Activity {
     private Integer ruleId; // 规则id
 
     @Column
-    private String loginName; // 微信号
+    private String openid; // 微信openid
 
     @Column
     private boolean status; // 是否中奖
@@ -40,12 +40,12 @@ public class Activity {
         this.ruleId = ruleId;
     }
 
-    public String getLoginName() {
-        return loginName;
+    public String getOpenid() {
+        return openid;
     }
 
-    public void setLoginName(String loginName) {
-        this.loginName = loginName;
+    public void setOpenid(String openid) {
+        this.openid = openid;
     }
 
     public boolean isStatus() {
@@ -61,7 +61,7 @@ public class Activity {
         return "Activity{" +
                 "id=" + id +
                 ", ruleId=" + ruleId +
-                ", loginName='" + loginName + '\'' +
+                ", openid='" + openid + '\'' +
                 ", status=" + status +
                 '}';
     }

@@ -16,7 +16,6 @@ import xinQing.web.entity.User;
 import xinQing.web.model.WeiXinAccess;
 import xinQing.web.model.WeiXinValidation;
 import xinQing.web.model.weixinMessage.Message;
-import xinQing.web.model.weixinMessage.TextMessage;
 import xinQing.web.model.weixinMessage.WeiXinUserInfo;
 import xinQing.web.service.WeiXinService;
 import xinQing.web.util.MessageUtil;
@@ -25,7 +24,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.BufferedInputStream;
 import java.io.IOException;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.Map;
@@ -94,7 +92,7 @@ public class WeiXinServiceImpl implements WeiXinService {
                 }
                 String openid = (String) messages.get("FromUserName");
                 activity = new Activity();
-                activity.setLoginName(openid);
+                activity.setOpenid(openid);
                 activity.setRuleId(ruleId);
                 if (activityMapper.selectOne(activity) != null) {
                     MessageUtil.handlerMessage("少侠你已经参与了本次抽奖活啦!不要在展现你的手速了！", messages, response);
@@ -105,10 +103,10 @@ public class WeiXinServiceImpl implements WeiXinService {
                 User user = new User();
                 user.setOpenid(openid);
                 User persistUser = userMapper.selectOne(user);
-                if (persistUser == null) {
-                    MessageUtil.handlerMessage("少侠，好手速！你已经成功参与了本次抽奖活啦", messages, response);
-                } else {
+                if (persistUser == null || persistUser.getTel() == null) {
                     MessageUtil.handlerMessage("少侠，好手速！你已经成功参与了本次抽奖活啦!你还没填写你的个人信息哦!请到如下的链接[http://penshower.com/user/" + openid + "]中填写你的信息，以便中奖号发送信息给你。", messages, response);
+                } else {
+                    MessageUtil.handlerMessage("少侠，好手速！你已经成功参与了本次抽奖活啦", messages, response);
                 }
             } else if ("帮助".equals(content)) {// 帮助
                 MessageUtil.handlerHelpMessage(messages, response);

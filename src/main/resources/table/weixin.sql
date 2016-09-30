@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50710
 File Encoding         : 65001
 
-Date: 2016-09-28 14:13:00
+Date: 2016-10-01 00:03:15
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -22,7 +22,7 @@ DROP TABLE IF EXISTS `activity`;
 CREATE TABLE `activity` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `rule_id` int(11) DEFAULT NULL COMMENT '抽奖规则id',
-  `login_name` varchar(255) DEFAULT NULL COMMENT '参与抽奖的微信账号',
+  `openid` varchar(255) DEFAULT NULL COMMENT '参与抽奖的微信账号',
   `status` tinyint(1) DEFAULT NULL COMMENT '是否中奖',
   PRIMARY KEY (`id`),
   KEY `rule_id` (`rule_id`),
@@ -79,13 +79,14 @@ INSERT INTO `rule` VALUES ('2', '第二次抽奖', '测试抽奖2', '2016-09-27 
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `open_id` varchar(255) DEFAULT NULL COMMENT '微信openId',
+  `openid` varchar(255) DEFAULT NULL COMMENT '微信openId',
   `username` varchar(255) DEFAULT NULL COMMENT '微信昵称',
   `tel` varchar(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `loginName` (`open_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  UNIQUE KEY `loginName` (`openid`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of user
 -- ----------------------------
+INSERT INTO `user` VALUES ('1', 'sdfgart', null, null);

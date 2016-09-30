@@ -1,5 +1,6 @@
 package xinQing.web.controller;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -18,6 +19,8 @@ import java.io.IOException;
 @Controller
 @RequestMapping("/user")
 public class UserController {
+
+    private static final Logger log = Logger.getLogger(UserController.class);
 
     @Autowired
     private UserService userService;
@@ -38,19 +41,22 @@ public class UserController {
         User user = new User();
         user.setOpenid(openid);
         User persistUser = userService.selectOne(user);
-        if (persistUser != null) {
+        if (persistUser != null && persistUser.getTel() != null) {
             modelMap.addAttribute("user", persistUser);
             return "user/index";
         }
         WeiXinAccess access = null;
         try {
             access = weiXinService.access();
+            log.debug(access);
             WeiXinUserInfo weiXinUserInfo = weiXinService.getWeiXinUserInfo(access, openid);
+            log.debug(weiXinUserInfo);
             user = new User();
             user.setOpenid(openid);
             user.setUsername(weiXinUserInfo.getNickname());
             // 其他信息暂时不需要
             userService.insert(user);
+            log.debug(user);
             modelMap.addAttribute("user", user);
             return "user/add";
         } catch (IOException e) {
